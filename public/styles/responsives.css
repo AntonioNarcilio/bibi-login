@@ -1,0 +1,25 @@
+/* Para telas 💻 de no máximo 400px */
+@media (max-width: 400px) {
+
+	.login-page {
+		width: 300px;
+	}
+
+	.form {
+		padding: 33px;
+	}
+
+}
+
+/* Para telas 💻 de no máximo 286px */
+@media (max-width: 313px) {
+
+	.login-page {
+		width: 256px;
+	}
+
+	.form {
+		padding: 30px;
+	}
+
+}
