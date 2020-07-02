@@ -2,6 +2,7 @@ const express = require("express")
 const server = express()
 const bodyParser = require("body-parser")
 
+
 // 💡 Passando a porta a ser utilizada
 // 💡 config de porta no heroku 'process.env.PORT'
 const PORT = process.env.PORT || 8080
@@ -17,6 +18,7 @@ server.use(express.static("public"))
 
 // 💡 Configurando rota da pagina principal
 server.get("/", (request, response) => {
+
 
 	// 💡 Passando o arquivo a ser mostrado
 	return response.sendFile(__dirname + "/views/index.html")
