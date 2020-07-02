@@ -13,6 +13,8 @@
 
   <link rel="stylesheet" href="/styles/responsives.css">
 
+  <script src="https://unpkg.com/blip-chat-extension@1.0.4" type="text/javascript"></script>
+
 </head>
 
 <body>
@@ -32,7 +34,7 @@
         <input id="matricula" type="text" placeholder="Matricula" required />
         <input id="senha" type="password" placeholder="Senha" required />
 
-        <button type="submit">login</button>
+        <button id="button-login" type="submit">login</button>
 
         <p class="message">Esqueceu a senha? <a href="#">Redefinir senha</a></p>
       </form>
@@ -45,6 +47,82 @@
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
   <script src="/scripts/animation.js"></script>
   <script src="/scripts/index.js"></script>
+
+
+
+  <!-- <script>
+    // var datepicker = $('#datepicker').datepicker({
+    //   uiLibrary: 'bootstrap4'
+    // });
+
+    //Carrega webview extensions
+    var webView = new BlipChatExtension()
+
+    //Método que define as regras para fechamento da webview
+    // webView.overrideOnClose(function () {
+
+    //   if (datepicker.value() != '') {
+    //     //Permite fechar a webiview
+    //     return true;
+    //   }
+
+    //   alert('Escolha uma data antes de fechar a Webview');
+    //   //Impede o fechamento da webiview
+    //   return false;
+    // })
+
+    $('#button-login').click(function () {
+      var token = datepicker.value();
+      console.log(date);
+      $('#value').text(date);
+
+      //Exemplos de envio de mensagem de uma webview para um bot:
+      //Descomente um dos blocos abaixo para testar
+
+      //1 - enviar uma mensagem de texto simples. (Usuário consegue visualizar a mensagem na janela de conversa)
+      webView.sendMessage(date);
+
+      //2 - enviar tipos diferente (veja todos os tipos neste link: https://docs.blip.ai/#content-types) de texto para o bot (Usuário consegue visualizar a mensagem na janela de conversa)
+      // webView.sendMessage({
+      //   "type": "application/vnd.lime.media-link+json",
+      //   "content": {
+      //     "title": "My image message",
+      //     "text": "Here is a cat image for you!",
+      //     "type": "image/jpeg",
+      //     "uri":
+      //       "http://2.bp.blogspot.com/-pATX0YgNSFs/VP-82AQKcuI/AAAAAAAALSU/Vet9e7Qsjjw/s1600/Cat-hd-wallpapers.jpg",
+      //     "aspectRatio": "1:1",
+      //     "size": 227791,
+      //     "previewUri":
+      //       "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcS8qkelB28RstsNxLi7gbrwCLsBVmobPjb5IrwKJSuqSnGX4IzX",
+      //     "previewType": "image/jpeg"
+      //   }
+      // })
+
+      //3 - enviar uma mensagem de texto simples. (Usuário NÃO visualiza a mensagem na janela de conversa)
+      // webView.sendMessage({
+      //   "payload": {
+      //     "type": "text/plain",
+      //     "content": "Hidden content"
+      //   }
+      // })
+
+      //4 - enviar uma mensagem de texto simples. (Usuário visualiza uma mensagem e o bot recebe outro valor)
+      // webView.sendMessage({
+      //   "payload": {
+      //     "type": "text/plain",
+      //     "content": "Texto recebido pelo bot"
+      //   },
+      //   "preview": {
+      //     "type": "text/plain",
+      //     "content": "Texto visualizado pelo usuário"
+      //   }
+      // })
+
+      //finalizar webview
+      webView.closeWebView();
+    })
+  </script> -->
 
 </body>
 

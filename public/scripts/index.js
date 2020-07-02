@@ -9,7 +9,7 @@ const formRedefinir = document.querySelector("#redefinir-senha")
 const endpoint_login = "https://bot-bibi2.herokuapp.com/login" 
 const endpoint_redefinir = "https://bot-bibi2.herokuapp.com/auth/forgot"
 
-
+var webView = new BlipChatExtension()
 
 function logon() {
 	
@@ -27,15 +27,23 @@ function logon() {
 		})
 
 		.then((res) => { 
-		console.log(res.ok)
+			console.log(res.ok)
+
 			if (res.ok == true) {
 				alert("Login bem sucedido!")
+				
+				console.log(res.headers.get('authorization'))
+
+				var token = res.headers.get('authorization')
+	
+				webView.sendMessage(token);
 			}
 			else {
 				alert("Senha ou matricula errada!")
 			}
 
-		console.log(res.headers.get('authorization'))
+
+
 		})
 
 		.catch((error) => {
