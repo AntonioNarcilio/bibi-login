@@ -32,16 +32,19 @@ function logon() {
 			if (res.ok == true) {
 				alert("Login bem sucedido!")
 				
-				console.log(res.headers.get('authorization'))
+				// console.log(res.headers.get('authorization'))
 
 				var token = res.headers.get('authorization')
-	
-				webView.sendMessage(token);
+
+				// console.log('retornou o token ' + token);
+				  	
+				
+				return webView.sendMessage(token);
+
 			}
 			else {
 				alert("Senha ou matricula errada!")
 			}
-
 
 
 		})

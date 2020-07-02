@@ -51,14 +51,11 @@
 
 
   <!-- <script>
-    // var datepicker = $('#datepicker').datepicker({
-    //   uiLibrary: 'bootstrap4'
-    // });
 
     //Carrega webview extensions
     var webView = new BlipChatExtension()
 
-    //Método que define as regras para fechamento da webview
+    // Método que define as regras para fechamento da webview
     // webView.overrideOnClose(function () {
 
     //   if (datepicker.value() != '') {
@@ -72,15 +69,15 @@
     // })
 
     $('#button-login').click(function () {
-      var token = datepicker.value();
-      console.log(date);
-      $('#value').text(date);
+      var token = logon(token);
+      console.log('retornou o token ' + token);
+      // $('#value').text(date);
 
       //Exemplos de envio de mensagem de uma webview para um bot:
       //Descomente um dos blocos abaixo para testar
 
       //1 - enviar uma mensagem de texto simples. (Usuário consegue visualizar a mensagem na janela de conversa)
-      webView.sendMessage(date);
+      webView.sendMessage(token);
 
       //2 - enviar tipos diferente (veja todos os tipos neste link: https://docs.blip.ai/#content-types) de texto para o bot (Usuário consegue visualizar a mensagem na janela de conversa)
       // webView.sendMessage({
