@@ -1,32 +1,88 @@
-const login = document.getElementById("login")
-const matricula = document.getElementById("matricula")
-const senha = document.getElementById("senha")
 
-const esqueceu_senha = document.getElementById("redefinir-senha")
-const email = document.getElementById("email")
+const matricula = document.querySelector("#matricula")
+const senha = document.querySelector("#senha")
+const email = document.querySelector("#email")
 
+const formLogin = document.querySelector("#login")
+const formRedefinir = document.querySelector("#redefinir-senha")
 
-
-login.addEventListener("submit", () => {
-
-	alert(
-		"Matricula: " + matricula.value +
-		"\nSenha: " + senha.value
-	)
-
-	console.log(matricula.value)
-	console.log(senha.value)
-
-})
+const endpoint_login = "https://bot-bibi2.herokuapp.com/login" 
+const endpoint_redefinir = "https://bot-bibi2.herokuapp.com/auth/forgot"
 
 
 
-esqueceu_senha.addEventListener("submit", () => {
+function logon() {
+	
+	var body = {
+			matricula: matricula.value,
+			senha: senha.value
+		}
+		
+	fetch(endpoint_login, {
+		method: 'POST',
+		headers : { 
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify(body)
+		})
 
-	alert(
-		"Email: " + email.value
-	)
+		.then((res) => { 
+		console.log(res.ok)
+			if (res.ok == true) {
+				alert("Login bem sucedido!")
+			}
+			else {
+				alert("Senha ou matricula errada!")
+			}
 
-	console.log(email.value)
+		console.log(res.headers.get('authorization'))
+		})
 
-})
+		.catch((error) => {
+			console.log("Algo deu errado ", error)
+		})
+
+		
+
+
+}
+	
+
+function redefinirSenha() {
+
+		var body = {
+			email: email.value
+		}
+	
+		fetch(endpoint_redefinir, {
+			method: 'POST',
+			headers : { 
+				'Content-Type' : 'application/json'
+			},
+			body: JSON.stringify(body)
+		  })
+	
+		alert("Uma nova senha foi enviada para o email definido!")
+	
+}
+
+
+	// Prevenindo evento padrão de toda vez que clicar em logan o formulário é atualizado
+	formLogin.addEventListener("submit", event => {
+		event.preventDefault()
+	})
+
+	// Prevenindo evento padrão de toda vez que clicar em enviar o formulário é atualizado
+	formRedefinir.addEventListener("submit", event => {
+		event.preventDefault()
+	})
+
+
+	document
+		.getElementById("login")
+		.addEventListener("submit", logon)
+
+	document
+		.getElementById("redefinir-senha")
+		.addEventListener("submit", redefinirSenha)
+	
