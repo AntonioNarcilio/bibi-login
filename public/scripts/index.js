@@ -24,6 +24,7 @@ const endpoint_login = "https://bot-bibi2.herokuapp.com/login";
 const endpoint_redefinir = "https://bot-bibi2.herokuapp.com/auth/forgot";
 
 
+
 // 💡 Função a ser executada quando usuário tentar fazer login
 function logon() {
   var body = {
@@ -50,7 +51,7 @@ function logon() {
         // console.log("Retornou o token 🔑\n" + token);
 
         // 💡 Desabilitando botão para não fazer mais solicitações
-        buttonLogin.disabled = true
+        buttonLogin.hidden = true
 
         // 💡 Removendo class que oculta o conteúdo modal
         modal.classList.remove("hide")
@@ -115,7 +116,7 @@ function redefinirSenha() {
     });
 
   // 💡 Desabilitando botão para não fazer mais solicitações
-  submitEmail.disabled = true
+  submitEmail.hidden = true
   // Mostrando modal
   modal.classList.remove("hide")
   // Mostrando o botão x
