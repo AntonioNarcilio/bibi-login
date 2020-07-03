@@ -8,10 +8,9 @@
   <img src="https://img.shields.io/static/v1?label=node.js&message=12.18.2&color=037400&labelColor=025800" alt="Node JS" />
 
   <img src="https://img.shields.io/static/v1?label=license&message=MIT&color=C20101&labelColor=AA0000" alt="Licença" />
-  
-  <a href="#-📃-licença">
-    <img src="https://img.shields.io/static/v1?label=deploy&message=heroku&color=8B6BB0&labelColor=6D548B" alt="Heroku" />
-  </a>
+ 
+  <img src="https://img.shields.io/static/v1?label=deploy&message=heroku&color=8B6BB0&labelColor=6D548B" alt="Heroku" />
+
 </p>
 
 <p align="center"> 
