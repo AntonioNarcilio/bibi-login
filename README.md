@@ -37,3 +37,6 @@
 ## :memo: Licença
 
 Projeto sob licença MIT. Visualizar arquivo [LICENSE](LICENSE.md) para mais informações.
+
+<br>
+by 😎 AntonioNarcilio
