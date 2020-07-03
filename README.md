@@ -9,7 +9,9 @@
 
   <img src="https://img.shields.io/static/v1?label=license&message=MIT&color=C20101&labelColor=AA0000" alt="Licença" />
   
-  <img src="https://img.shields.io/static/v1?label=deploy&message=heroku&color=8B6BB0&labelColor=6D548B" alt="Heroku" />
+  <a href="#-📃-licença">
+    <img src="https://img.shields.io/static/v1?label=deploy&message=heroku&color=8B6BB0&labelColor=6D548B" alt="Heroku" />
+  </a>
 </p>
 
 <p align="center"> 
@@ -34,7 +36,7 @@
 [Heroku](https://www.heroku.com)
 
 
-## :memo: Licença
+## 📃 Licença
 
 Projeto sob licença MIT. Visualizar arquivo [LICENSE](LICENSE.md) para mais informações.
 
