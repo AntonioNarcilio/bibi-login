@@ -36,7 +36,7 @@
 
 <body>
 
-  <div class="login-page">
+  <div class="login-page hide">
     <div class="form">
 
       <!-- Redefinir Senha -->
@@ -58,10 +58,16 @@
         <p class="message">Esqueceu a senha? <a href="#">Redefinir senha</a></p>
       </form>    
       
+    </div>
+  </div>
+
+  <div class="token-page hide">
+    <div class="form">
+      
       <form id="copy-token" class="token">
         <!-- Copiar Token -->
         <input id="clipboard" hidden type="text"/>
-        <button id="token" hidden >Pegar chave</button>
+        <button id="token" >Pegar chave</button>
       </form>
 
     </div>

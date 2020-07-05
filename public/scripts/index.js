@@ -2,7 +2,7 @@ const matricula = document.querySelector("#matricula");
 const senha = document.querySelector("#senha");
 const email = document.querySelector("#email");
 
-const form =document.querySelector(".form")
+const form = document.querySelector(".form")
 
 const formLogin = document.querySelector("#login");
 const formRedefinir = document.querySelector("#redefinir-senha");
@@ -26,12 +26,13 @@ const emailSentInfo = document.querySelector("#email_sent-info")
 const tokenCopied = document.querySelector("#token_copied")
 const tokenCopiedInfo = document.querySelector("#token_copied-info")
 
-const buttonToken = document.querySelector("#token")
+const tokenForm = document.querySelector(".token-page")
+const loginForm = document.querySelector(".login-page")
 
 const endpoint_login = "https://bot-bibi2.herokuapp.com/login";
 const endpoint_redefinir = "https://bot-bibi2.herokuapp.com/auth/forgot";
 
-
+loginForm.classList.remove("hide")
 
 // 💡 Função a ser executada quando usuário tentar fazer login
 function logon() {
@@ -59,11 +60,9 @@ function logon() {
         var token = res.headers.get("authorization");
         // console.log("Retornou o token 🔑\n" + token);
 
-        // 💡 Desabilitando botão para não fazer mais solicitações
-        buttonLogin.hidden = true
-        formLogin.hidden = true
-
-        buttonToken.hidden = false
+  
+        loginForm.classList.add("hide")
+        tokenForm.classList.remove("hide")
 
         // 💡 Removendo class que oculta o conteúdo modal
         modal.classList.remove("hide")
@@ -82,11 +81,11 @@ function logon() {
           successLogin.classList.add("hidden")
           successLoginInfo.classList.add("hidden")
 
-          buttonToken.classList.remove("hidden")
+          tokenForm.classList.remove("hidden")
         })
 
       // Caso usuário clique no botão
-      buttonToken.addEventListener("click", () => {
+      tokenForm.addEventListener("click", () => {
 
         // 💡 Passando o token para a area de transferência
         var clipboard = document.getElementById("clipboard");
@@ -171,6 +170,7 @@ function redefinirSenha() {
     // 💡 Ocultando conteúdo para não gerar conflito
     emailSent.classList.add("hidden")
     emailSentInfo.classList.add("hidden")
+
   })
 
 }
