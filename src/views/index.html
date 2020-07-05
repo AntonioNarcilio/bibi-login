@@ -40,7 +40,7 @@
     <div class="form">
 
       <!-- Redefinir Senha -->
-      <form id="redefinir-senha" class="register-form">
+      <form id="redefinir-senha" class="reset-form">
         <input id="email" type="email" placeholder="E-mail" required />
 
         <button id="enviar-email" type="submit">Enviar</button>
@@ -56,12 +56,13 @@
         <button id="button-login" type="submit">login</button>
 
         <p class="message">Esqueceu a senha? <a href="#">Redefinir senha</a></p>
+      </form>    
+      
+      <form id="copy-token" class="token">
+        <!-- Copiar Token -->
+        <input id="clipboard" hidden type="text"/>
+        <button id="token" hidden >Pegar chave</button>
       </form>
-
-      <!-- Copiar Token -->
-      <button id="token" hidden style="margin-top: 10px;">Pegar Token</button>
-      <input id="clipboard" type="text" hidden />
-
 
     </div>
   </div>
@@ -72,37 +73,48 @@
 		<div class="content">
 			<div class="header">
 
-        <h1 id="sucesso" class="hidden">Login bem sucedido!!</h1>
+        <h1 id="success_login" class="hidden">Login bem sucedido!!</h1>
 
-        <h1 id="erro" class="hidden">Erro ao efetuar login!!</h1>
+        <h1 id="token_copied" class="hidden">Chave copiada!!</h1>
 
-        <h1 id="redefinir" class="hidden">Email enviado!!</h1>
+        <h1 id="error_login" class="hidden">Erro ao efetuar login!!</h1>
 
-        <a class="hide" href="#">Fechar</a>
+        <h1 id="email_sent" class="hidden">Email enviado!!</h1>
+
+        <a href="#">Fechar</a>
 
       </div>
 
       <!-- Mensagem se tudo der certo -->
-        <h2 id="sucesso-info" class="hidden">
-          Chave 🔑 de segurança 🔐 copiada para a area de transferência 📋
+        <h2 id="success_login-info" class="hidden">
+
+          <!-- Chave 🔑 de segurança 🔐 copiada para a area de transferência 📋 -->
           <br>
-          Feche a janela ❌ e cole o conteúdo na caixa de mensagem 📭 para prosseguir com a reserva 📚
+          <!-- Feche a janela ❌ e cole o conteúdo na caixa de mensagem 📭 para prosseguir com a reserva 📚 -->
+          Clique no botão 👉 "Pegar Chave", depois feche a janela 🔙 e cole na caixa de mensagem 📭 para prosseguir com a reserva 📚
         </h2>
 
       <!-- Mensagem se der algo errado -->
-        <h2 id="error-info" class="hidden">
+        <h2 id="error_login-info" class="hidden">
           A senha ou a matricula podem estar incorretas ⚠️
           <br>
-          Se no seu caso você tiver esquecido a senha caso queira é só clicar em "redefinir senha" logo abaixo do botão login
+          Se no seu caso você tiver esquecido 🤦 a senha caso queira é só clicar em "redefinir senha" logo abaixo do botão login
         </h2>
 
 
       <!-- Mensagem de email enviado -->
-      <h2 id="email-info" class="hidden">
+      <h2 id="email_sent-info" class="hidden">
         Uma mensagem 📩 contendo sua nova senha 🔐 foi enviada 📨 para a sua caixa de entrada 📬
         <br>
         Verifique.
       </h2>
+      
+      <!-- Token Info -->
+      <h2 id="token_copied-info" class="hidden">
+        Chave de segurança 🔑 copiada para a sua area de transferência 📋 você já pode fechar a janela
+      </h2>
+
+
 		</div>
 
 	</div>

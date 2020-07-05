@@ -2,8 +2,11 @@ const matricula = document.querySelector("#matricula");
 const senha = document.querySelector("#senha");
 const email = document.querySelector("#email");
 
+const form =document.querySelector(".form")
+
 const formLogin = document.querySelector("#login");
 const formRedefinir = document.querySelector("#redefinir-senha");
+const fromCopyToken = document.querySelector("#copy-token")
 
 const buttonLogin = document.querySelector("#button-login");
 const submitEmail = document.querySelector("#enviar-email");
@@ -11,14 +14,19 @@ const submitEmail = document.querySelector("#enviar-email");
 const modal = document.querySelector("#modal")
 const closeModal = document.querySelector("#modal .header a")
 
-const successLogin = document.querySelector("#modal .header #sucesso")
-const successInfo = document.querySelector("#sucesso-info")
+const successLogin = document.querySelector("#success_login")
+const successLoginInfo = document.querySelector("#success_login-info")
 
-const errorInfo = document.querySelector("#error-info")
-const badLogin = document.querySelector("#modal .header #erro")
+const badLogin = document.querySelector("#error_login")
+const badLoginInfo = document.querySelector("#error_login-info")
 
-const emailSent = document.querySelector("#redefinir")
-const emailInfo = document.querySelector("#email-info")
+const emailSent = document.querySelector("#email_sent")
+const emailSentInfo = document.querySelector("#email_sent-info")
+
+const tokenCopied = document.querySelector("#token_copied")
+const tokenCopiedInfo = document.querySelector("#token_copied-info")
+
+const buttonToken = document.querySelector("#token")
 
 const endpoint_login = "https://bot-bibi2.herokuapp.com/login";
 const endpoint_redefinir = "https://bot-bibi2.herokuapp.com/auth/forgot";
@@ -39,6 +47,7 @@ function logon() {
       },
       body: JSON.stringify(body),
     })
+
     .then((res) => {
       // console.log(res.ok);
 
@@ -52,13 +61,32 @@ function logon() {
 
         // 💡 Desabilitando botão para não fazer mais solicitações
         buttonLogin.hidden = true
+        formLogin.hidden = true
+
+        buttonToken.hidden = false
 
         // 💡 Removendo class que oculta o conteúdo modal
         modal.classList.remove("hide")
+        closeModal.classList.remove("hide")
+
         // 💡 Removendo class que oculta o conteúdo informativo
         successLogin.classList.remove("hidden")
-        successInfo.classList.remove("hidden")
+        successLoginInfo.classList.remove("hidden")
 
+      
+    
+        // 💡 Caso usuário clique no X
+        closeModal.addEventListener("click", () => {
+          // Ocultando o modal
+          modal.classList.add("hide")
+          successLogin.classList.add("hidden")
+          successLoginInfo.classList.add("hidden")
+
+          buttonToken.classList.remove("hidden")
+        })
+
+      // Caso usuário clique no botão
+      buttonToken.addEventListener("click", () => {
 
         // 💡 Passando o token para a area de transferência
         var clipboard = document.getElementById("clipboard");
@@ -67,6 +95,14 @@ function logon() {
         clipboard.select();
         document.execCommand("copy");
         clipboard.style.display = "none";
+
+        modal.classList.remove("hide")
+        closeModal.classList.add("hide")
+
+        tokenCopied.classList.remove("hidden")
+        tokenCopiedInfo.classList.remove("hidden")
+      })
+
 
       } 
       else {
@@ -77,7 +113,7 @@ function logon() {
         closeModal.classList.remove("hide")
         // 💡 Removendo class que oculta o conteúdo informativo
         badLogin.classList.remove("hidden")
-        errorInfo.classList.remove("hidden")
+        badLoginInfo.classList.remove("hidden")
 
         // 💡 Caso usuário clique no X
         closeModal.addEventListener("click", () => {
@@ -86,9 +122,9 @@ function logon() {
           // add classe 'hidden'
           badLogin.classList.add("hidden")
           // Ocultando de novo a mensagem para não gerar conflito
-          errorInfo.classList.add("hidden")
+          badLoginInfo.classList.add("hidden")
           // ocultando de novo o item 'x'
-          closeModal.classList.add("hide")
+          // closeModal.classList.add("hide")
         })
       }
     })
@@ -123,7 +159,7 @@ function redefinirSenha() {
   closeModal.classList.remove("hide")
   // 💡 Removendo class que oculta o conteúdo informativo
   emailSent.classList.remove("hidden")
-  emailInfo.classList.remove("hidden")
+  emailSentInfo.classList.remove("hidden")
 
   // 💡 Caso usuário clique no X
   closeModal.addEventListener("click", () => {
@@ -134,23 +170,27 @@ function redefinirSenha() {
 
     // 💡 Ocultando conteúdo para não gerar conflito
     emailSent.classList.add("hidden")
-    emailInfo.classList.add("hidden")
+    emailSentInfo.classList.add("hidden")
   })
 
 }
 
 
 // Prevenindo evento padrão de toda vez que clicar em logan o formulário é atualizado
-formLogin.addEventListener("submit", (event) => {
-  event.preventDefault();
+form.addEventListener("submit", (event) => {
+  event.preventDefault()
 
-});
+})
 
-// Prevenindo evento padrão de toda vez que clicar em enviar o formulário é atualizado
-formRedefinir.addEventListener("submit", (event) => {
-  event.preventDefault();
+// // Prevenindo evento padrão de toda vez que clicar em enviar o formulário é atualizado
+// formRedefinir.addEventListener("submit", (event) => {
+//   event.preventDefault()
 
-});
+// });
+
+// fromCopyToken.addEventListener("submit", (event) =>{
+//   event.preventDefault()
+// })
 
 
 document
@@ -160,4 +200,6 @@ document
 document
   .getElementById("redefinir-senha")
   .addEventListener("submit", redefinirSenha);
+
+
 
