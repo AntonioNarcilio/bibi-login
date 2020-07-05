@@ -26,8 +26,9 @@ const emailSentInfo = document.querySelector("#email_sent-info")
 const tokenCopied = document.querySelector("#token_copied")
 const tokenCopiedInfo = document.querySelector("#token_copied-info")
 
-const tokenForm = document.querySelector(".token-page")
+
 const loginForm = document.querySelector(".login-page")
+const tokenForm = document.querySelector(".token-page")
 
 const endpoint_login = "https://bot-bibi2.herokuapp.com/login";
 const endpoint_redefinir = "https://bot-bibi2.herokuapp.com/auth/forgot";
@@ -177,11 +178,16 @@ function redefinirSenha() {
 
 
 // Prevenindo evento padrão de toda vez que clicar em logan o formulário é atualizado
-form.addEventListener("submit", (event) => {
+loginForm.addEventListener("submit", (event) => {
   event.preventDefault()
 
 })
 
+// Prevenindo evento padrão de toda vez que clicar em logan o formulário é atualizado
+tokenForm.addEventListener("submit", (event) => {
+  event.preventDefault()
+
+})
 // // Prevenindo evento padrão de toda vez que clicar em enviar o formulário é atualizado
 // formRedefinir.addEventListener("submit", (event) => {
 //   event.preventDefault()
